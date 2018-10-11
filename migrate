@@ -15,6 +15,7 @@ bases="$@"
 
 move_database "$server" $bases
 
-if confirmDialog "Migrate $bases folders as well ?"; then
+while confirmDialog "Migrate some folders as well ?"
+do
     move_data "$server" $bases
-fi
+done
