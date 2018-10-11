@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if test "$#" -lt 2;then
+    >&2 echo "Error: Usage: $0 server bases"
+    exit 1;
+fi
+
+
+
+server="$1"
+shift
+bases=("$@")
+
+echo "In what folder are checked repository ?"
+read -p "" folder
+
+if ! test -d "$folder";
+then
+    >&2 echo "Error: $0: $folder is not a directory"
+    exit 2;
+fi
+
+folder="${folder%\/}"
+found=()
+for i in "${bases[@]}";
+do
+    if test -d "$folder/$i";
+    then
+        if ! confirmDialog "Rsync : $folder/$i ?";
+        then
+            continue
+        fi
+        found+=("$folder/$i")
+    else
+        echo "$folder/$i does not exist"
+        if confirmDialog "Look for $i elsewhere ?";then
+            read -p "Input path for $i" newpath
+            if ! test -f "$newpath";then
+                echo "$newpath not a file. Ignored"
+                continue
+            fi
+            found+=("$newpath")
+        fi
+    fi
+done
+
+echo "Where should the documents be copied ?"
+read -p "" remoteLocation
+remoteLocation="${remoteLocation%\/}"
+
+for i in "${found[@]}"
+do
+    name="$(basename $i)"
+    rsync -e ssh -avz --update "$i" "$server:$remoteLocation/$name"
+done
+

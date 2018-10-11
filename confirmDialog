@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if test "$#" -lt 1;then
+    >&2 echo "Error: Usage: $0 confirmation string"
+    exit 1;
+fi
+
+confirm="$@"
+
+while true
+do
+    echo "$confirm yes/no"
+    read -p "" yn
+    case ${yn,,} in
+        yes) exit 0;;
+        no) exit 2;;
+    esac
+done

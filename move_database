@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if test "$#" -lt 2;then
+    >&2 echo "Error: Usage: $0 server bases"
+    exit 1;
+fi
+
+
+
+server="$1"
+shift
+bases="$@"
+
+echo "What is local Mysql User ?"
+read -p "" username
+echo "What is local Mysql password for user $username ?"
+read -sp "" password
+
+filename="$(mktemp)"
+targetFilename="/tmp/migration-$HOSTNAME.sql"
+mysqldump -h localhost --user=$username --password=$password --opt --routines --databases $bases > $filename
+
+echo "Dump done, copying dump"
+scp -q "$filename" $server:$targetFilename
+
+echo "Copy done, integrating dump on $server"
+echo "What is remote Mysql user on $server ?"
+read -p "" remoteUser
+echo" What is remote Mysql password for $remoteUser on $server ?"
+read -sp "" remotePass
+
+integrateRemoteBase "$remoteUser" "$remotePass" "$targetFilename"
+

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if test "$#" -lt 2;then
+    >&2 echo "Error: Usage: $0 server bases"
+    exit 1;
+fi
+
+
+
+server="$1"
+shift
+bases="$@"
+
+move_database "$server" $bases
+
+if confirmDialog "Migrate $bases folders as well ?"; then
+    move_data "$server" $bases
+fi
