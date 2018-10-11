@@ -37,4 +37,4 @@ $ migrate "target host added to .ssh/config" "as" "much" "bases" "as" "needed"
     * find corresponding folders with the help of the user
     * ask for new location on remote server
     * rsync the data on required location. actual configuration : over ssh, compressed and update only.
-
+3. loop step two until exit
