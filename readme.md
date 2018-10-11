@@ -2,14 +2,16 @@
 
 ## Prerequisites
 
-1. having a functionnal `git` and in path
-2. having a functionnal `/usr/bin/env`
+1. having `git` or `wget` installed and in path
+2. having `/usr/bin/env` (should be trivial : it is everywhere even it freebsd)
 3. having `expect` installed and in path
-4. clone the git repository
+4. clone or download the git repository
 ```bash
 $ git clone https://github.com/Siweb-France/migrate
 or
 $ git clone https://github.com/Siweb-France/migrate /var/scripts/migrate # for custom location
+$ wget https://github.com/Siweb-France/migrate/archive/master.zip && tar -xf master.zip && rm master.zip
+or if git is inaccessible
 ```
 
 
