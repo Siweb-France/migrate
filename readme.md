@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-1. having a functionnal git
+1. having a functionnal git and in path
 2. having a functionnal /usr/bin/env
 3. having `expect` installed and in path
 4. clone the git repository
