@@ -6,7 +6,8 @@
 2. having a functionnal /usr/bin/env
 3. clone the git repository
 ```bash
-$ git clone https://github.com/Siweb-France/migrate <optional new folder to create># for https clone
+$ git clone https://github.com/Siweb-France/migrate "optional new folder to create"
+# for https clone
 ```
 
 
