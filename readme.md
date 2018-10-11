@@ -4,7 +4,8 @@
 
 1. having a functionnal git
 2. having a functionnal /usr/bin/env
-3. clone the git repository
+3. having `expect` installed and in path
+4. clone the git repository
 ```bash
 $ git clone https://github.com/Siweb-France/migrate
 or
