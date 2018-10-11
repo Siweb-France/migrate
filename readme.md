@@ -8,11 +8,9 @@
 4. be able to use SSL
 5. clone or download the git repository
 ```bash
-$ git clone https://github.com/Siweb-France/migrate
-or
-$ git clone https://github.com/Siweb-France/migrate /var/scripts/migrate # for custom location
-$ wget https://github.com/Siweb-France/migrate/archive/master.zip && tar -xf master.zip && rm master.zip
-or if git is inaccessible
+$ git clone https://github.com/Siweb-France/migrate # or
+$ git clone https://github.com/Siweb-France/migrate /var/scripts/migrate # for custom location, or
+$ wget https://github.com/Siweb-France/migrate/archive/master.zip && tar -xf master.zip && rm master.zip # if git is inaccessible
 ```
 
 
