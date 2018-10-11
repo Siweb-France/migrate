@@ -1,5 +1,17 @@
 # Migration
 
+## Prerequisites
+
+1. having a functionnal git
+2. having a functionnal /usr/bin/env
+3. clone the git repository
+```bash
+$ git clone https://github.com/Siweb-France/migrate # for https clone
+```
+
+
+## How to
+
 * enable the migration tools in path by running :
 ```bash
 $ . enableMigrationTools
@@ -8,6 +20,8 @@ $ . enableMigrationTools
 ```bash
 $ migrate "target host added to .ssh/config" "as" "much" "bases" "as" "needed"
 ```
+
+## Explication
 
 **migrate** will : 
 1. migrate the database
