@@ -9,7 +9,7 @@ $ . enableMigrationTools
 $ migrate "target host added to .ssh/config" "as" "much" "bases" "as" "needed"
 ```
 
-migrate will : 
+**migrate** will : 
 1. migrate the database
     * dump required databases
     * scp the dump on remote server
