@@ -5,7 +5,8 @@
 1. having `git` or `wget` installed and in path
 2. having `/usr/bin/env` (should be trivial : it is everywhere even it freebsd)
 3. having `expect` installed and in path
-4. clone or download the git repository
+4. be able to use SSL
+5. clone or download the git repository
 ```bash
 $ git clone https://github.com/Siweb-France/migrate
 or
