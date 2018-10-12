@@ -17,8 +17,26 @@ $ wget https://github.com/Siweb-France/migrate/archive/master.zip && tar -xf mas
 ## How to
 
 ```bash
-$ migrate "target host added to .ssh/config" "as" "much" "bases" "as" "needed"
+$ . enableMigrationTools # to add program to the Path (facultative)
+$ migrate <user@hostname> <database 1> [ <database 2> <database 3> ... ]
 ```
+Note that the remote host connection must be transparent : at least register as a `authorized_key`
+
+```ssh
+# Make connection automatic by adding local public key to 
+ssh-copy-id username@hostname
+```
+
+You can also preset the connection in `.ssh/config` :
+
+```ssh
+# make a preset for the connection
+host alias_name
+    hostname server_name
+    user user_name
+```
+
+And then simply use `ssh alias_name`, or in our case, `migrate alias_name <bases ...>`
 
 ## Explication
 
