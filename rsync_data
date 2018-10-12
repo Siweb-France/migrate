@@ -13,14 +13,19 @@ server="$1"
 shift
 bases=("$@")
 
-echo "In what folder are checked repository ?"
-read -p "" folder
+while true
+do
+    echo "In what folder are checked repository ? <ctrl-c to exit>"
+    read -p "" folder
+    if ! test -d "$folder";
+    then
 
-if ! test -d "$folder";
-then
-    >&2 echo "Error: $0: $folder is not a directory"
-    exit 2;
-fi
+        >&2 echo "Error: $0: $folder is not a directory"
+    else
+        break;
+    fi
+done
+
 
 folder="${folder%\/}"
 found=()
