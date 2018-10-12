@@ -11,7 +11,7 @@ confirm="$@"
 
 while true
 do
-    echo "$confirm yes/no"
+    echo "$confirm Yes / No"
     read -p "" yn
     case ${yn,,} in
         yes) exit 0;;
