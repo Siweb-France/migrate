@@ -16,6 +16,6 @@ bases="$@"
 move_database "$server" $bases
 
 while confirmDialog "Migrate some folders as well ?"
-do
-    move_data "$server" $bases
+do    
+    rsync_data "$server" $bases
 done
