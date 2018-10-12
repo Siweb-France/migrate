@@ -38,6 +38,27 @@ host alias_name
 
 And then simply use `ssh alias_name`, or in our case, `migrate alias_name <bases ...>`
 
+## Warning
+
+This script will allow you to copy a **set of files** to an **unified location**.
+
+For instance, it will allow you to copy the `/etc/file1`, `/var/file2` and `/home/file3` to a **single remote folder**.
+
+##### To transfer another single file, use 
+
+```bash
+rsync_update /my/origin remote:/my/destination
+```
+
+##### to transfer many folders to one location, use
+
+```bash
+rsync_data remote file1 file2 file3    
+```
+
+**Do not specify the path of files in rsync\_data, the script will ask you for the locations and confirmation**
+
+
 ## Explication
 
 **migrate** will : 
