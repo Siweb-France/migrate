@@ -21,8 +21,5 @@ if confirmDialog "Migrate some folders as well? "
 then
 
     read -p "Input some directory name to add to the list: " pluslist;
-    if ! test -z "${pluslist// }" ;then
-        bases+=($pluslist)
-    fi
-    rsync_data "$server" $bases
+    rsync_data "$server" $bases $pluslist
 fi
