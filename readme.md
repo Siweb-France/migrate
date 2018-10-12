@@ -44,13 +44,13 @@ This script will allow you to copy a **set of files** to an **unified location**
 
 For instance, it will allow you to copy the `/etc/file1`, `/var/file2` and `/home/file3` to a **single remote folder**.
 
-##### To transfer another single file, use 
+#### To transfer another single file, use 
 
 ```bash
 rsync_update /my/origin remote:/my/destination
 ```
 
-##### to transfer many files to one location, use
+#### To transfer many files to one location, use
 
 ```bash
 rsync_data remote folder1 folder2 file
