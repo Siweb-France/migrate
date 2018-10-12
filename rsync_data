@@ -66,7 +66,7 @@ for i in "${found[@]}"
 do
     name="$(basename $i)"
     echo "executing \"rsync_update $i $server:$remoteLocation/$name\" silently" | tee -a $rapport
-    rsync_update "$i" "$server:$remoteLocation/$name" 2>&1 >> $rapport
+    rsync_update "$i" "$server:$remoteLocation" 2>&1 >> $rapport
 done
 
 less $rapport
