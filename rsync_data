@@ -41,9 +41,9 @@ do
     else
         echo "$folder/$i does not exist"
         if confirmDialog "Look for $i elsewhere ?";then
-            read -p "Input path for $i" newpath
+            read -p "Input complete path for $i : " newpath
             if ! test -f "$newpath";then
-                echo "$newpath not a file. Ignored"
+                >&2 echo "$newpath not a file. Ignored"
                 continue
             fi
             found+=("$newpath")
@@ -55,9 +55,13 @@ echo "Where should the documents be copied ?"
 read -p "" remoteLocation
 remoteLocation="${remoteLocation%\/}"
 
+rapport=$(mktemp)
+
 for i in "${found[@]}"
 do
     name="$(basename $i)"
-    rsync -e ssh -avz --update "$i" "$server:$remoteLocation/$name"
+    echo "executing rsync -e ssh -avz --update $i $server:$remoteLocation/$name silently"
+    rsync -e ssh -avz --update "$i" "$server:$remoteLocation/$name" 2>&1 >> $rapport
 done
 
+less $rapport
