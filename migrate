@@ -17,7 +17,12 @@ echo Migrating $bases to "$server"
 
 move_database "$server" $bases
 
-while confirmDialog "Migrate some folders as well ?"
-do    
+if confirmDialog "Migrate some folders as well? "
+then
+
+    read -p "Input some directory name to add to the list: " pluslist;
+    if ! test -z "${pluslist// }" ;then
+        bases+=($plustlist)
+    fi
     rsync_data "$server" $bases
-done
+fi
