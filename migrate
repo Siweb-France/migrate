@@ -24,5 +24,6 @@ then
     if ! test -z "${pluslist// }" ;then
         bases+=($pluslist)
     fi
+    echo "Rsync-ing ${bases[@]}"
     rsync_data "$server" $bases
 fi
