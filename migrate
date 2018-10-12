@@ -1,13 +1,13 @@
 #!/bin/bash
 
+. enableMigrationTools
+
 set -euo pipefail
 
 if test "$#" -lt 2;then
     >&2 echo "Error: Usage: $0 server bases"
     exit 1;
 fi
-
-
 
 server="$1"
 shift
