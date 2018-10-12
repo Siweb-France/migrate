@@ -50,14 +50,13 @@ For instance, it will allow you to copy the `/etc/file1`, `/var/file2` and `/hom
 rsync_update /my/origin remote:/my/destination
 ```
 
-##### to transfer many folders to one location, use
+##### to transfer many files to one location, use
 
 ```bash
-rsync_data remote file1 file2 file3    
+rsync_data remote folder1 folder2 file
 ```
 
-**Do not specify the path of files in rsync\_data, the script will ask you for the locations and confirmation**
-
+**Do not specify the path of files in `rsync_data`, the script will ask you for the locations and confirmation**
 
 ## Explication
 
