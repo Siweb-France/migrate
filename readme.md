@@ -16,11 +16,6 @@ $ wget https://github.com/Siweb-France/migrate/archive/master.zip && tar -xf mas
 
 ## How to
 
-* enable the migration tools in path by running :
-```bash
-$ . enableMigrationTools
-```
-* migrate the data
 ```bash
 $ migrate "target host added to .ssh/config" "as" "much" "bases" "as" "needed"
 ```
