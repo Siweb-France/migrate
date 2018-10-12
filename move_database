@@ -16,7 +16,7 @@ shift
 bases="$@"
 
 echo "What is local Mysql User ?"
-read -p "" username
+read -p "" -i "root"  username
 echo "What is local Mysql password for user $username ?"
 read -sp "" password
 
@@ -30,7 +30,7 @@ scp -q "$filename" $server:$targetFilename
 
 echo "Copy done, integrating dump on $server"
 echo "What is remote Mysql user on $server ?"
-read -p "" remoteUser
+read -p "" -i "root" remoteUser
 echo "What is remote Mysql password for $remoteUser on $server ?"
 read -sp "" remotePass
 

@@ -17,8 +17,8 @@ bases=("$@")
 
 while true
 do
-    echo "In what folder are checked repository ? <ctrl-c to exit>"
-    read -p "" folder
+    echo "In what folder are checked repository? <ctrl-c to exit>"
+    read -p "" -i "/var/www" folder
     if ! test -d "$folder";
     then
 
@@ -43,7 +43,7 @@ do
     else
         echo "$folder/$i does not exist"
         if confirmDialog "Look for $i elsewhere ?";then
-            read -p "Input complete path for $i : " newpath
+            read -p "Input complete path for $i : " -i "$folder/"  newpath
             if ! test -f "$newpath" -o -d "$newpath";then
                 >&2 echo "$newpath not a file. Ignored"
                 continue
@@ -53,9 +53,10 @@ do
     fi
 done
 
-echo "Where should the documents be copied ?"
-read -p "" remoteLocation
+echo "Where should the documents be copied? "
+read -p "" -i "/var/www" remoteLocation
 remoteLocation="${remoteLocation%\/}"
+
 
 rapport=$(mktemp)
 set +e
