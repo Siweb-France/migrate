@@ -13,6 +13,8 @@ server="$1"
 shift
 bases="$@"
 
+echo Migrating $bases to "$server"
+
 move_database "$server" $bases
 
 while confirmDialog "Migrate some folders as well ?"
