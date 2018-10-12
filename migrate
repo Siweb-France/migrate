@@ -22,7 +22,7 @@ then
 
     read -p "Input some directory name to add to the list: " pluslist;
     if ! test -z "${pluslist// }" ;then
-        bases+=($plustlist)
+        bases+=($pluslist)
     fi
     rsync_data "$server" $bases
 fi
