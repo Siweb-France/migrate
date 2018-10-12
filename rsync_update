@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if test "$#" -lt 2;then
+    echo "Error: Usage: $0 local remote";
+    exit 2
+fi
+
+rsync -e ssh -avz --update "$1" "$2"
