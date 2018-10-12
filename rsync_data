@@ -5,7 +5,7 @@
 set -euo pipefail
 
 if test "$#" -lt 2;then
-    >&2 echo "Error: Usage: $0 server bases"
+    >&2 echo "Error: Usage: $0 server folders"
     exit 1;
 fi
 
@@ -62,7 +62,7 @@ set +e
 for i in "${found[@]}"
 do
     name="$(basename $i)"
-    echo "executing \"rsync -e ssh -avz --update $i $server:$remoteLocation/$name\" silently"
+    echo "executing \"rsync -e ssh -avz --update $i $server:$remoteLocation/$name\" silently" | tee -a $rapport
     rsync -e ssh -avz --update "$i" "$server:$remoteLocation/$name" 2>&1 >> $rapport
 done
 

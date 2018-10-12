@@ -34,5 +34,7 @@ read -p "" remoteUser
 echo "What is remote Mysql password for $remoteUser on $server ?"
 read -sp "" remotePass
 
+echo "Integrating dump in $server"
 integrateRemoteBase "$server"  "$remoteUser" "$remotePass" "$targetFilename"
+echo "Integration done"
 
