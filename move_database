@@ -16,9 +16,9 @@ shift
 bases="$@"
 
 echo "What is local Mysql User ?"
-read -p "" -i "root"  username
+read -rep "" -i "root"  username
 echo "What is local Mysql password for user $username ?"
-read -sp "" password
+read -srep "" password
 
 echo "Dumping Database ..."
 filename="$(mktemp)"
@@ -30,9 +30,9 @@ scp -q "$filename" $server:$targetFilename
 
 echo "Copy done, integrating dump on $server"
 echo "What is remote Mysql user on $server ?"
-read -p "" -i "root" remoteUser
+read -rep "" -i "root" remoteUser
 echo "What is remote Mysql password for $remoteUser on $server ?"
-read -sp "" remotePass
+read -srep "" remotePass
 
 echo "Integrating dump in $server"
 integrateRemoteBase "$server"  "$remoteUser" "$remotePass" "$targetFilename"

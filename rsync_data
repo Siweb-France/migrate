@@ -9,6 +9,7 @@ if test "$#" -lt 2;then
     exit 1;
 fi
 
+nl=$'\n'
 
 
 server="$1"
@@ -19,8 +20,7 @@ echo "Rsync-ing ${bases[@]} to $server"
 
 while true
 do
-    echo "In what folder are checked repository? <ctrl-c to exit>"
-    read -p "" -i "/var/www" -e folder
+    read -rep "In what folder are checked repository? <ctrl-c to exit>$nl" -i "/var/www" -e folder
     if ! test -d "$folder";
     then
 
@@ -45,7 +45,7 @@ do
     else
         echo "$folder/$i does not exist"
         if confirmDialog "Look for $i elsewhere ?";then
-            read -p "Input complete path for $i : " -i "$folder/"  -e newpath
+            read -rep "Input complete path for $i : " -i "$folder/"  -e newpath
             if ! test -f "$newpath" -o -d "$newpath";then
                 >&2 echo "$newpath not a file. Ignored"
                 continue
@@ -55,8 +55,7 @@ do
     fi
 done
 
-echo "Where should the documents be copied? "
-read -p "" -i "/var/www" -e remoteLocation
+read -rep "Where should the documents be copied?$nl" -i "/var/www" -e remoteLocation
 remoteLocation="${remoteLocation%\/}"
 
 

@@ -24,6 +24,6 @@ move_database "$server" $bases
 if confirmDialog "Migrate some folders as well? "
 then
 
-    read -p "Input some directory name to add to the list: " pluslist;
+    read -rep "Input some directory name to add to the list: " pluslist;
     rsync_data "$server" $bases $pluslist
 fi

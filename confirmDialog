@@ -8,11 +8,11 @@ if test "$#" -lt 1;then
 fi
 
 confirm="$@"
+nl=$'\n'
 
 while true
 do
-    echo "$confirm Yes / No"
-    read -p "" yn
+    read -rep "$confirm Yes / No$nl" yn
     case ${yn,,} in
         yes) exit 0;;
         no) exit 2;;
