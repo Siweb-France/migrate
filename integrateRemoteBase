@@ -14,6 +14,7 @@ if {$file eq ""} {
 
 spawn ssh $host
 expect "$"
-send "mysql -f --user=$user --password=$pass < $file \n"
+send " mysql -f --user=$user --password=$pass < $file \n"
+send " rm $file \n"
 send " logout\n"
 expect eof

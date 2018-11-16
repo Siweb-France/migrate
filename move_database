@@ -28,6 +28,8 @@ mysqldump -h localhost --user=$username --password=$password --opt --routines --
 echo "Dump done, copying dump"
 scp -q "$filename" $server:$targetFilename
 
+rm "$filename"
+
 echo "Copy done, integrating dump on $server"
 echo "What is remote Mysql user on $server ?"
 read -rep "" -i "root" remoteUser
