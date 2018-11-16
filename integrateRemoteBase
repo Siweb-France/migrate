@@ -10,10 +10,10 @@ if {$file eq ""} {
 	exit 1
 }
 
-log_user 0
+#log_user 0
 
 spawn ssh $host
 expect "$"
-send " mysql --user=$user --password=$pass < $file \n"
+send "mysql -f --user=$user --password=$pass < $file \n"
 send " logout\n"
 expect eof
