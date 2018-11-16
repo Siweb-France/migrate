@@ -21,7 +21,7 @@ echo "What is local Mysql password for user $username ?"
 read -srep "" password
 
 echo "Dumping Database ..."
-filename="$(mktemp)"
+filename="$(mktemp /var/migration.XXXXXXX)"
 targetFilename="/tmp/migration-$HOSTNAME.sql"
 mysqldump -h localhost --user=$username --password=$password --opt --routines --databases $bases > $filename
 
